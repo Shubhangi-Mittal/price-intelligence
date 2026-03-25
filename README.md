@@ -107,12 +107,3 @@ price-intelligence/
 └── scripts/
     └── setup_and_run.sh
 ```
-
-## Resume Talking Points
-
-- Built end-to-end batch pipeline processing **35K+ listings/day** across **6 marketplace sources** and **10 product categories**
-- Engineered **platform fee model** tracking per-source economics (5–15% fee range, net seller revenue calculation)
-- Implemented **source × category coverage monitoring** — automated gap detection across all 60 source/category combinations
-- Modelled **category-level price volatility tiers** using coefficient of variation — trading cards flagged as very volatile (CV > 0.40), watches as stable (CV < 0.15)
-- Extended **anomaly detection** with category volatility context — a 50% spike in trading cards is treated differently from the same spike in electronics
-- Added **authentication tracking** for StockX/GOAT verified listings, enabling trust-adjusted pricing analysis
