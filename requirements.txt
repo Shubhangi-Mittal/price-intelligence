@@ -1,0 +1,37 @@
+# ── requirements.txt ──────────────────────────────────────────────────────────
+# Pinned tightly to prevent pip backtracking on the Google Cloud dependency tree.
+#
+# QUICK START (local dev — no cloud needed, installs in ~30 seconds):
+#   pip install -r requirements.txt
+#
+# CLOUD / PRODUCTION (adds BigQuery + Airflow):
+#   pip install -r requirements.txt -r requirements-cloud.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Core data ─────────────────────────────────────────────────────────────────
+pandas==2.2.1
+numpy==1.26.4
+requests==2.31.0
+python-dotenv==1.0.1
+pydantic==2.6.4
+loguru==0.7.2
+
+# ── Local warehouse (dev — no BigQuery account needed) ────────────────────────
+duckdb==0.10.1
+
+# ── dbt core only (works with DuckDB adapter for local dev) ──────────────────
+dbt-core==1.7.11
+dbt-duckdb==1.7.3
+
+# ── Dashboard ────────────────────────────────────────────────────────────────
+streamlit==1.33.0
+plotly==5.21.0
+
+# ── Monitoring / alerting ────────────────────────────────────────────────────
+slack-sdk==3.27.1
+
+# ── Scraping ─────────────────────────────────────────────────────────────────
+beautifulsoup4==4.12.3
+
+# ── Dev / testing ─────────────────────────────────────────────────────────────
+pytest==8.1.1

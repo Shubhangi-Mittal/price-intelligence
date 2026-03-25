@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+venv/
+
+# dbt
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+target/
+logs/
+
+# Data — keep mock_data/all_listings.csv (committed by Actions)
+# but ignore daily partitions (too many files)
+mock_data/20*/
+raw_data/
+*.parquet
+.extractor_state.json
+
+# Keep these ↓ (explicitly unignore)
+!mock_data/all_listings.csv
+!mock_data/metadata.json
+!public/data.json
+!public/index.html
+!public/_redirects
+
+# Node (Vercel CLI)
+node_modules/
+.npm/
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Airflow
+airflow.db
+airflow/logs/

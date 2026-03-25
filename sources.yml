@@ -1,0 +1,136 @@
+# models/staging/sources.yml
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Raw marketplace listing data ingested from 6 sources via batch pipeline:
+      eBay, Amazon, StockX, Facebook Marketplace, GOAT, Mercari
+    database: "{{ env_var('DBT_DATABASE', 'price_intelligence') }}"
+    schema: raw
+
+    freshness:
+      warn_after:  {count: 6,  period: hour}
+      error_after: {count: 24, period: hour}
+    loaded_at_field: ingested_at
+
+    tables:
+      - name: listings
+        description: "Raw product listings — 6 sources × 10 categories"
+        loaded_at_field: ingested_at
+        freshness:
+          warn_after:  {count: 2, period: hour}
+          error_after: {count: 8, period: hour}
+        columns:
+          - name: listing_id
+            description: "Unique identifier from source marketplace"
+            tests:
+              - not_null
+          - name: source
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+          - name: category
+            tests:
+              - not_null
+              - accepted_values:
+                  values:
+                    - sneakers
+                    - trading_cards
+                    - electronics
+                    - furniture
+                    - watches
+                    - handbags
+                    - vintage_clothing
+                    - video_games
+                    - collectibles
+                    - cameras
+          - name: price
+            tests:
+              - not_null
+          - name: ingested_at
+            tests:
+              - not_null
+
+models:
+  - name: stg_listings
+    description: >
+      Staged marketplace listings. Typed, renamed, deduplicated.
+      One row per unique listing_id across all 6 sources and 10 categories.
+      Excludes invalid prices, unknown sources/categories, and future-dated records.
+      Adds platform fee, total cost, authentication, and local pickup flags.
+    columns:
+      - name: listing_id
+        description: "Unique listing identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: source
+        description: "Marketplace source"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: category
+        description: "Product category"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: price_usd
+        description: "Listed price in USD"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+              max_value: 5000000     # covers high-end watches ($85k) and handbags ($45k)
+
+      - name: platform_fee_usd
+        description: "Platform fee charged by the marketplace"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: total_cost_usd
+        description: "Price + shipping — what the buyer actually pays"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+
+      - name: condition
+        tests:
+          - accepted_values:
+              values: ['new', 'like_new', 'good', 'fair', 'poor']
+              quote: false
+
+      - name: seller_rating
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 5
+              inclusive: true
+
+      - name: is_authenticated
+        description: "True for StockX/GOAT verified listings"
+        tests:
+          - not_null
+
+      - name: listing_created_at
+        tests:
+          - not_null
+

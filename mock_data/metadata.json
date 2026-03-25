@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-03-25T09:21:35.277020",
+  "total_records": 35448,
+  "date_range": {
+    "start": "2025-12-25",
+    "end": "2026-03-25"
+  },
+  "categories": {
+    "sneakers": "Sneakers",
+    "trading_cards": "Trading Cards",
+    "electronics": "Electronics",
+    "furniture": "Furniture",
+    "watches": "Watches",
+    "handbags": "Handbags",
+    "vintage_clothing": "Vintage Clothing",
+    "video_games": "Video Games",
+    "collectibles": "Collectibles",
+    "cameras": "Cameras & Lenses"
+  },
+  "sources": {
+    "ebay": "eBay",
+    "amazon": "Amazon",
+    "stockx": "StockX",
+    "facebook_marketplace": "Facebook Marketplace",
+    "goat": "GOAT",
+    "mercari": "Mercari"
+  }
+}

@@ -1,0 +1,35 @@
+name: Weekly Data Refresh & Deploy
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Every Monday at 6:00 AM UTC
+  workflow_dispatch:        # Manual trigger
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Generate fresh mock data
+        run: python ingestion/mock_feed_generator.py --days 90 --records 400
+
+      - name: Build dashboard data.json
+        run: python scripts/build_dashboard_data.py
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ./

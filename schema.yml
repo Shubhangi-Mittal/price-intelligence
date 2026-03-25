@@ -1,0 +1,164 @@
+version: 2
+
+models:
+  - name: mart_price_trends
+    description: >
+      Daily price trend summary — 6 sources × 10 categories.
+      Primary table for dashboards and reporting.
+      Includes WoW change, rolling averages, trend signals,
+      platform fee metrics, authentication rates, and volatility tiers.
+    columns:
+      - name: listing_date
+        tests:
+          - not_null
+
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: total_listings
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: median_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+              max_value: 5000000     # high-end watches/handbags
+
+      - name: sell_through_rate
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+              inclusive: true
+
+      - name: avg_fee_pct
+        description: "Average platform fee % for this source"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: authentication_rate_pct
+        description: "% of listings verified by platform (StockX/GOAT)"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: volatility_tier
+        tests:
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: price_trend
+        tests:
+          - accepted_values:
+              values: ['trending_up', 'trending_down', 'stable']
+
+      # One row per date/category/source
+      - name: listing_date
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns: [listing_date, category, source]
+
+  - name: mart_price_anomalies
+    description: >
+      All detected price anomalies with severity scoring.
+      v2 adds: source_display, category_display, volatility context,
+      authentication status, and platform fee context for investigation.
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: category
+        tests:
+          - not_null
+
+      - name: anomaly_type
+        tests:
+          - accepted_values:
+              values: ['price_spike', 'price_drop']
+
+      - name: anomaly_severity
+        tests:
+          - accepted_values:
+              values: ['critical', 'high', 'medium', 'low']
+
+      - name: price_z_score
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: category_volatility_tier
+        description: "Volatility context — spikes in volatile categories are less alarming"
+        tests:
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: seller_tier
+        tests:
+          - accepted_values:
+              values: ['power_seller', 'trusted_seller', 'standard_seller', 'new_or_flagged']
+
+  - name: int_listings_enriched
+    description: >
+      Enriched listings with 7-day rolling price benchmarks, z-score anomaly detection,
+      deal scoring, seller quality tiers, platform fee analysis, and category volatility.
+      Covers 6 sources × 10 categories.
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
+      - name: deal_score
+        tests:
+          - accepted_values:
+              values: ['great_deal', 'good_deal', 'fair_price', 'overpriced']
+
+      - name: seller_tier
+        tests:
+          - accepted_values:
+              values: ['power_seller', 'trusted_seller', 'standard_seller', 'new_or_flagged']
+
+      - name: category_volatility_tier
+        tests:
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: is_price_anomaly
+        tests:
+          - not_null
+

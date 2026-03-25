@@ -1,0 +1,106 @@
+name: 'price_intelligence'
+version: '2.0.0'
+config-version: 2
+
+profile: 'price_intelligence'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Model configurations by layer
+models:
+  price_intelligence:
+    # Staging: raw → typed, no business logic
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: ["staging"]
+
+    # Intermediate: business logic, joins
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+      +tags: ["intermediate"]
+
+    # Marts: final analytics-ready tables
+    marts:
+      +materialized: table
+      +schema: marts
+      +tags: ["marts"]
+      +post-hook:
+        - "GRANT SELECT ON {{ this }} TO ROLE ANALYST"
+
+# ── Variables ─────────────────────────────────────────────────────────────────
+vars:
+  # Lookback window for incremental models
+  incremental_lookback_days: 3
+  # Anomaly detection threshold (% price change vs 7-day median)
+  price_anomaly_threshold: 0.30
+  # Minimum seller rating to be classified as standard_seller
+  min_seller_rating: 3.0
+
+  # All 6 supported marketplace sources
+  valid_sources:
+    - ebay
+    - amazon
+    - stockx
+    - facebook_marketplace
+    - goat
+    - mercari
+
+  # All 10 product categories
+  valid_categories:
+    - sneakers
+    - trading_cards
+    - electronics
+    - furniture
+    - watches
+    - handbags
+    - vintage_clothing
+    - video_games
+    - collectibles
+    - cameras
+
+  # Sources that authenticate items before sale (material price premium)
+  authenticated_sources: ['stockx', 'goat']
+
+  # Categories where authentication is commercially meaningful
+  authentication_relevant_categories:
+    - sneakers
+    - watches
+    - handbags
+
+  # Categories with heavy/oversize shipping (Facebook Marketplace primary)
+  heavy_shipping_categories:
+    - furniture
+
+# ── Seeds ─────────────────────────────────────────────────────────────────────
+seeds:
+  price_intelligence:
+    +schema: seeds
+    source_fee_reference:
+      +column_types:
+        source:   varchar
+        fee_pct:  numeric
+        has_auth: boolean
+    category_metadata:
+      +column_types:
+        category:         varchar
+        avg_days_to_sell: integer
+        is_volatile:      boolean
+
+# ── Snapshots (SCD Type 2 for seller profiles) ────────────────────────────────
+snapshots:
+  price_intelligence:
+    +target_schema: snapshots
+    +strategy: check
+    +check_cols: ['seller_rating', 'num_seller_reviews']
