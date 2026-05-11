@@ -1,1669 +1,1634 @@
 {
   "kpis": {
-    "total_listings": 35540,
-    "total_gmv": 327152004.48,
-    "overall_median": 2038.98,
-    "sell_through_pct": 38.3,
-    "auction_pct": 4.6
+    "total_listings": 35488,
+    "total_gmv": 323439642.04,
+    "overall_median": 2024.88,
+    "sell_through_pct": 37.8,
+    "auction_pct": 4.2
   },
   "cat_stats": [
     {
       "category": "cameras",
       "category_display": "Cameras & Lenses",
-      "listings": 3625,
-      "median_price": 5031.39,
-      "avg_price": 5183.46,
-      "min_price": 165.31,
-      "max_price": 29847.06,
-      "sold_count": 1406,
-      "avg_shipping": 9.44,
-      "sell_through": 38.8
+      "listings": 3649,
+      "median_price": 4777.2,
+      "avg_price": 5010.73,
+      "min_price": 165.74,
+      "max_price": 24702.24,
+      "sold_count": 1446,
+      "avg_shipping": 9.27,
+      "sell_through": 39.6
     },
     {
       "category": "collectibles",
       "category_display": "Collectibles",
-      "listings": 3687,
-      "median_price": 5479.27,
-      "avg_price": 6290.19,
+      "listings": 3664,
+      "median_price": 5266.89,
+      "avg_price": 6096.48,
       "min_price": 1.0,
-      "max_price": 30887.17,
-      "sold_count": 1423,
-      "avg_shipping": 7.63,
-      "sell_through": 38.6
+      "max_price": 30736.95,
+      "sold_count": 1390,
+      "avg_shipping": 7.8,
+      "sell_through": 37.9
     },
     {
       "category": "electronics",
       "category_display": "Electronics",
-      "listings": 3495,
-      "median_price": 1145.33,
-      "avg_price": 1190.1,
-      "min_price": 63.31,
-      "max_price": 6045.14,
-      "sold_count": 1350,
-      "avg_shipping": 7.63,
-      "sell_through": 38.6
+      "listings": 3572,
+      "median_price": 1134.95,
+      "avg_price": 1189.07,
+      "min_price": 65.84,
+      "max_price": 6337.54,
+      "sold_count": 1287,
+      "avg_shipping": 7.71,
+      "sell_through": 36.0
     },
     {
       "category": "furniture",
       "category_display": "Furniture",
-      "listings": 3416,
-      "median_price": 3773.82,
-      "avg_price": 4124.16,
-      "min_price": 37.14,
-      "max_price": 22882.67,
-      "sold_count": 1287,
-      "avg_shipping": 47.33,
-      "sell_through": 37.7
+      "listings": 3484,
+      "median_price": 3641.66,
+      "avg_price": 4051.21,
+      "min_price": 30.87,
+      "max_price": 23898.57,
+      "sold_count": 1308,
+      "avg_shipping": 45.48,
+      "sell_through": 37.5
     },
     {
       "category": "handbags",
       "category_display": "Handbags",
-      "listings": 3531,
-      "median_price": 22485.72,
-      "avg_price": 24156.06,
-      "min_price": 411.23,
-      "max_price": 137233.64,
-      "sold_count": 1362,
-      "avg_shipping": 9.55,
-      "sell_through": 38.6
+      "listings": 3513,
+      "median_price": 23877.69,
+      "avg_price": 24617.43,
+      "min_price": 384.67,
+      "max_price": 120883.67,
+      "sold_count": 1349,
+      "avg_shipping": 9.61,
+      "sell_through": 38.4
     },
     {
       "category": "sneakers",
       "category_display": "Sneakers",
-      "listings": 3507,
-      "median_price": 374.81,
-      "avg_price": 401.41,
-      "min_price": 52.44,
-      "max_price": 1889.17,
-      "sold_count": 1340,
-      "avg_shipping": 9.3,
-      "sell_through": 38.2
+      "listings": 3512,
+      "median_price": 377.38,
+      "avg_price": 401.89,
+      "min_price": 46.6,
+      "max_price": 1927.56,
+      "sold_count": 1361,
+      "avg_shipping": 9.31,
+      "sell_through": 38.8
     },
     {
       "category": "trading_cards",
       "category_display": "Trading Cards",
-      "listings": 3522,
-      "median_price": 2353.36,
-      "avg_price": 2735.51,
+      "listings": 3565,
+      "median_price": 2279.69,
+      "avg_price": 2641.96,
       "min_price": 1.0,
-      "max_price": 13133.53,
-      "sold_count": 1321,
-      "avg_shipping": 9.52,
-      "sell_through": 37.5
+      "max_price": 15752.43,
+      "sold_count": 1340,
+      "avg_shipping": 9.56,
+      "sell_through": 37.6
     },
     {
       "category": "video_games",
       "category_display": "Video Games",
-      "listings": 3567,
-      "median_price": 877.17,
-      "avg_price": 946.98,
-      "min_price": 15.37,
-      "max_price": 5464.71,
-      "sold_count": 1409,
-      "avg_shipping": 9.41,
-      "sell_through": 39.5
+      "listings": 3570,
+      "median_price": 868.35,
+      "avg_price": 945.49,
+      "min_price": 11.05,
+      "max_price": 4930.92,
+      "sold_count": 1294,
+      "avg_shipping": 9.37,
+      "sell_through": 36.2
     },
     {
       "category": "vintage_clothing",
       "category_display": "Vintage Clothing",
-      "listings": 3631,
-      "median_price": 548.39,
-      "avg_price": 615.65,
-      "min_price": 6.29,
-      "max_price": 3287.33,
-      "sold_count": 1400,
-      "avg_shipping": 7.26,
-      "sell_through": 38.6
+      "listings": 3476,
+      "median_price": 557.55,
+      "avg_price": 617.37,
+      "min_price": 6.78,
+      "max_price": 3028.92,
+      "sold_count": 1345,
+      "avg_shipping": 7.04,
+      "sell_through": 38.7
     },
     {
       "category": "watches",
       "category_display": "Watches",
-      "listings": 3559,
-      "median_price": 45063.6,
-      "avg_price": 46353.43,
-      "min_price": 212.22,
-      "max_price": 250437.54,
-      "sold_count": 1306,
-      "avg_shipping": 9.23,
-      "sell_through": 36.7
+      "listings": 3483,
+      "median_price": 44535.42,
+      "avg_price": 46403.61,
+      "min_price": 207.04,
+      "max_price": 268236.79,
+      "sold_count": 1283,
+      "avg_shipping": 9.21,
+      "sell_through": 36.8
     }
   ],
   "src_stats": [
     {
       "source": "amazon",
       "source_display": "Amazon",
-      "listings": 5125,
-      "median_price": 1742.84,
-      "avg_fee": 1073.63,
-      "sold_count": 2045,
-      "sell_through": 39.9
+      "listings": 5086,
+      "median_price": 1707.67,
+      "avg_fee": 1024.74,
+      "sold_count": 1918,
+      "sell_through": 37.7
     },
     {
       "source": "ebay",
       "source_display": "eBay",
-      "listings": 6319,
-      "median_price": 1937.28,
-      "avg_fee": 805.17,
-      "sold_count": 2392,
-      "sell_through": 37.9
+      "listings": 6185,
+      "median_price": 1899.54,
+      "avg_fee": 845.15,
+      "sold_count": 2303,
+      "sell_through": 37.2
     },
     {
       "source": "facebook_marketplace",
       "source_display": "Facebook Marketplace",
-      "listings": 5987,
-      "median_price": 1545.25,
-      "avg_fee": 278.85,
-      "sold_count": 2222,
-      "sell_through": 37.1
+      "listings": 6087,
+      "median_price": 1504.58,
+      "avg_fee": 272.16,
+      "sold_count": 2279,
+      "sell_through": 37.4
     },
     {
       "source": "goat",
       "source_display": "GOAT",
-      "listings": 5327,
-      "median_price": 3534.94,
-      "avg_fee": 1513.17,
-      "sold_count": 2026,
-      "sell_through": 38.0
+      "listings": 5306,
+      "median_price": 3449.59,
+      "avg_fee": 1499.73,
+      "sold_count": 2033,
+      "sell_through": 38.3
     },
     {
       "source": "mercari",
       "source_display": "Mercari",
-      "listings": 6972,
-      "median_price": 2103.56,
-      "avg_fee": 723.4,
-      "sold_count": 2702,
-      "sell_through": 38.8
+      "listings": 6919,
+      "median_price": 2056.36,
+      "avg_fee": 709.66,
+      "sold_count": 2627,
+      "sell_through": 38.0
     },
     {
       "source": "stockx",
       "source_display": "StockX",
-      "listings": 5810,
-      "median_price": 3281.09,
-      "avg_fee": 1391.54,
-      "sold_count": 2217,
-      "sell_through": 38.2
+      "listings": 5905,
+      "median_price": 3051.77,
+      "avg_fee": 1365.79,
+      "sold_count": 2243,
+      "sell_through": 38.0
     }
   ],
   "heat": [
     {
       "source": "Amazon",
       "category": "Cameras & Lenses",
-      "median_price": 5402.45
+      "median_price": 4977.2
     },
     {
       "source": "Amazon",
       "category": "Collectibles",
-      "median_price": 6989.57
+      "median_price": 5720.49
     },
     {
       "source": "Amazon",
       "category": "Electronics",
-      "median_price": 1284.93
+      "median_price": 1193.62
     },
     {
       "source": "Amazon",
       "category": "Furniture",
-      "median_price": 3838.89
+      "median_price": 3960.52
     },
     {
       "source": "Amazon",
       "category": "Handbags",
-      "median_price": 24066.49
+      "median_price": 26645.08
     },
     {
       "source": "Amazon",
       "category": "Sneakers",
-      "median_price": 389.85
+      "median_price": 380.79
     },
     {
       "source": "Amazon",
       "category": "Trading Cards",
-      "median_price": 2408.16
+      "median_price": 2380.14
     },
     {
       "source": "Amazon",
       "category": "Video Games",
-      "median_price": 911.83
+      "median_price": 892.87
     },
     {
       "source": "Amazon",
       "category": "Vintage Clothing",
-      "median_price": 624.54
+      "median_price": 611.03
     },
     {
       "source": "Amazon",
       "category": "Watches",
-      "median_price": 44844.72
+      "median_price": 45818.43
     },
     {
       "source": "eBay",
       "category": "Cameras & Lenses",
-      "median_price": 4935.12
+      "median_price": 4883.76
     },
     {
       "source": "eBay",
       "category": "Collectibles",
-      "median_price": 5762.12
+      "median_price": 5263.77
     },
     {
       "source": "eBay",
       "category": "Electronics",
-      "median_price": 1254.89
+      "median_price": 1188.87
     },
     {
       "source": "eBay",
       "category": "Furniture",
-      "median_price": 3848.03
+      "median_price": 3965.48
     },
     {
       "source": "eBay",
       "category": "Handbags",
-      "median_price": 24010.15
+      "median_price": 24182.82
     },
     {
       "source": "eBay",
       "category": "Sneakers",
-      "median_price": 346.04
+      "median_price": 337.35
     },
     {
       "source": "eBay",
       "category": "Trading Cards",
-      "median_price": 2344.94
+      "median_price": 2183.74
     },
     {
       "source": "eBay",
       "category": "Video Games",
-      "median_price": 887.44
+      "median_price": 897.94
     },
     {
       "source": "eBay",
       "category": "Vintage Clothing",
-      "median_price": 594.36
+      "median_price": 589.88
     },
     {
       "source": "eBay",
       "category": "Watches",
-      "median_price": 43299.15
+      "median_price": 43684.65
     },
     {
       "source": "Facebook Marketplace",
       "category": "Cameras & Lenses",
-      "median_price": 3999.19
+      "median_price": 4462.84
     },
     {
       "source": "Facebook Marketplace",
       "category": "Collectibles",
-      "median_price": 4706.12
+      "median_price": 5074.1
     },
     {
       "source": "Facebook Marketplace",
       "category": "Electronics",
-      "median_price": 983.52
+      "median_price": 982.7
     },
     {
       "source": "Facebook Marketplace",
       "category": "Furniture",
-      "median_price": 3493.78
+      "median_price": 3200.34
     },
     {
       "source": "Facebook Marketplace",
       "category": "Handbags",
-      "median_price": 21726.28
+      "median_price": 20291.22
     },
     {
       "source": "Facebook Marketplace",
       "category": "Sneakers",
-      "median_price": 297.56
+      "median_price": 329.37
     },
     {
       "source": "Facebook Marketplace",
       "category": "Trading Cards",
-      "median_price": 2000.03
+      "median_price": 1899.53
     },
     {
       "source": "Facebook Marketplace",
       "category": "Video Games",
-      "median_price": 756.0
+      "median_price": 745.25
     },
     {
       "source": "Facebook Marketplace",
       "category": "Vintage Clothing",
-      "median_price": 495.79
+      "median_price": 505.83
     },
     {
       "source": "Facebook Marketplace",
       "category": "Watches",
-      "median_price": 37360.02
+      "median_price": 36929.18
     },
     {
       "source": "GOAT",
       "category": "Cameras & Lenses",
-      "median_price": 5517.73
+      "median_price": 4802.56
     },
     {
       "source": "GOAT",
       "category": "Collectibles",
-      "median_price": 6406.41
+      "median_price": 6043.74
     },
     {
       "source": "GOAT",
       "category": "Electronics",
-      "median_price": 1157.8
+      "median_price": 1241.24
     },
     {
       "source": "GOAT",
       "category": "Furniture",
-      "median_price": 4216.85
+      "median_price": 4105.76
     },
     {
       "source": "GOAT",
       "category": "Handbags",
-      "median_price": 24098.69
+      "median_price": 24993.62
     },
     {
       "source": "GOAT",
       "category": "Sneakers",
-      "median_price": 376.91
+      "median_price": 389.23
     },
     {
       "source": "GOAT",
       "category": "Trading Cards",
-      "median_price": 2495.33
+      "median_price": 2401.91
     },
     {
       "source": "GOAT",
       "category": "Video Games",
-      "median_price": 1030.57
+      "median_price": 927.8
     },
     {
       "source": "GOAT",
       "category": "Vintage Clothing",
-      "median_price": 575.13
+      "median_price": 601.32
     },
     {
       "source": "GOAT",
       "category": "Watches",
-      "median_price": 47658.26
+      "median_price": 46119.93
     },
     {
       "source": "Mercari",
       "category": "Cameras & Lenses",
-      "median_price": 4773.82
+      "median_price": 4498.63
     },
     {
       "source": "Mercari",
       "category": "Collectibles",
-      "median_price": 5314.92
+      "median_price": 4953.42
     },
     {
       "source": "Mercari",
       "category": "Electronics",
-      "median_price": 1059.16
+      "median_price": 1151.77
     },
     {
       "source": "Mercari",
       "category": "Furniture",
-      "median_price": 3609.34
+      "median_price": 3438.73
     },
     {
       "source": "Mercari",
       "category": "Handbags",
-      "median_price": 18998.65
+      "median_price": 21617.31
     },
     {
       "source": "Mercari",
       "category": "Sneakers",
-      "median_price": 327.18
+      "median_price": 312.34
     },
     {
       "source": "Mercari",
       "category": "Trading Cards",
-      "median_price": 2267.43
+      "median_price": 2166.7
     },
     {
       "source": "Mercari",
       "category": "Video Games",
-      "median_price": 797.01
+      "median_price": 791.02
     },
     {
       "source": "Mercari",
       "category": "Vintage Clothing",
-      "median_price": 539.55
+      "median_price": 526.66
     },
     {
       "source": "Mercari",
       "category": "Watches",
-      "median_price": 39281.1
+      "median_price": 39398.37
     },
     {
       "source": "StockX",
       "category": "Cameras & Lenses",
-      "median_price": 5738.5
+      "median_price": 5286.5
     },
     {
       "source": "StockX",
       "category": "Collectibles",
-      "median_price": 6021.09
+      "median_price": 5878.85
     },
     {
       "source": "StockX",
       "category": "Electronics",
-      "median_price": 1156.51
+      "median_price": 1315.71
     },
     {
       "source": "StockX",
       "category": "Furniture",
-      "median_price": 4709.41
+      "median_price": 4227.86
     },
     {
       "source": "StockX",
       "category": "Handbags",
-      "median_price": 25845.33
+      "median_price": 25690.31
     },
     {
       "source": "StockX",
       "category": "Sneakers",
-      "median_price": 436.88
+      "median_price": 418.51
     },
     {
       "source": "StockX",
       "category": "Trading Cards",
-      "median_price": 2487.24
+      "median_price": 2549.89
     },
     {
       "source": "StockX",
       "category": "Video Games",
-      "median_price": 1026.05
+      "median_price": 1018.97
     },
     {
       "source": "StockX",
       "category": "Vintage Clothing",
-      "median_price": 632.23
+      "median_price": 681.08
     },
     {
       "source": "StockX",
       "category": "Watches",
-      "median_price": 50175.35
+      "median_price": 47370.43
     }
   ],
   "monthly": [
     {
       "month": "2026-02",
       "category": "Cameras & Lenses",
-      "median_price": 5017.38
+      "median_price": 4708.44
     },
     {
       "month": "2026-02",
       "category": "Collectibles",
-      "median_price": 5417.2
+      "median_price": 5611.68
     },
     {
       "month": "2026-02",
       "category": "Electronics",
-      "median_price": 1177.54
+      "median_price": 1145.44
     },
     {
       "month": "2026-02",
       "category": "Furniture",
-      "median_price": 3745.74
+      "median_price": 3680.15
     },
     {
       "month": "2026-02",
       "category": "Handbags",
-      "median_price": 21956.22
+      "median_price": 22046.9
     },
     {
       "month": "2026-02",
       "category": "Sneakers",
-      "median_price": 389.15
+      "median_price": 382.2
     },
     {
       "month": "2026-02",
       "category": "Trading Cards",
-      "median_price": 2441.8
+      "median_price": 2268.2
     },
     {
       "month": "2026-02",
       "category": "Video Games",
-      "median_price": 872.78
+      "median_price": 797.9
     },
     {
       "month": "2026-02",
       "category": "Vintage Clothing",
-      "median_price": 568.76
+      "median_price": 564.29
     },
     {
       "month": "2026-02",
       "category": "Watches",
-      "median_price": 46043.04
+      "median_price": 44994.69
     },
     {
       "month": "2026-03",
       "category": "Cameras & Lenses",
-      "median_price": 4911.2
+      "median_price": 4919.85
     },
     {
       "month": "2026-03",
       "category": "Collectibles",
-      "median_price": 5522.08
+      "median_price": 5127.63
     },
     {
       "month": "2026-03",
       "category": "Electronics",
-      "median_price": 1120.25
+      "median_price": 1133.29
     },
     {
       "month": "2026-03",
       "category": "Furniture",
-      "median_price": 3838.71
+      "median_price": 3700.17
     },
     {
       "month": "2026-03",
       "category": "Handbags",
-      "median_price": 21769.45
+      "median_price": 24452.79
     },
     {
       "month": "2026-03",
       "category": "Sneakers",
-      "median_price": 376.56
+      "median_price": 394.5
     },
     {
       "month": "2026-03",
       "category": "Trading Cards",
-      "median_price": 2335.34
+      "median_price": 2302.33
     },
     {
       "month": "2026-03",
       "category": "Video Games",
-      "median_price": 835.49
+      "median_price": 896.57
     },
     {
       "month": "2026-03",
       "category": "Vintage Clothing",
-      "median_price": 516.78
+      "median_price": 574.93
     },
     {
       "month": "2026-03",
       "category": "Watches",
-      "median_price": 46067.93
+      "median_price": 43595.87
     },
     {
       "month": "2026-04",
       "category": "Cameras & Lenses",
-      "median_price": 4744.34
+      "median_price": 4612.18
     },
     {
       "month": "2026-04",
       "category": "Collectibles",
-      "median_price": 5544.1
+      "median_price": 5270.62
     },
     {
       "month": "2026-04",
       "category": "Electronics",
-      "median_price": 1139.08
+      "median_price": 1104.51
     },
     {
       "month": "2026-04",
       "category": "Furniture",
-      "median_price": 3602.48
+      "median_price": 3656.8
     },
     {
       "month": "2026-04",
       "category": "Handbags",
-      "median_price": 22831.95
+      "median_price": 24076.74
     },
     {
       "month": "2026-04",
       "category": "Sneakers",
-      "median_price": 364.11
+      "median_price": 357.82
     },
     {
       "month": "2026-04",
       "category": "Trading Cards",
-      "median_price": 2373.92
+      "median_price": 2281.45
     },
     {
       "month": "2026-04",
       "category": "Video Games",
-      "median_price": 950.97
+      "median_price": 880.13
     },
     {
       "month": "2026-04",
       "category": "Vintage Clothing",
-      "median_price": 516.69
+      "median_price": 541.77
     },
     {
       "month": "2026-04",
       "category": "Watches",
-      "median_price": 38834.12
+      "median_price": 45820.4
     },
     {
       "month": "2026-05",
       "category": "Cameras & Lenses",
-      "median_price": 4571.32
+      "median_price": 4719.71
     },
     {
       "month": "2026-05",
       "category": "Collectibles",
-      "median_price": 5266.82
+      "median_price": 5578.73
     },
     {
       "month": "2026-05",
       "category": "Electronics",
-      "median_price": 1205.54
+      "median_price": 1157.95
     },
     {
       "month": "2026-05",
       "category": "Furniture",
-      "median_price": 4785.43
+      "median_price": 3429.03
     },
     {
       "month": "2026-05",
       "category": "Handbags",
-      "median_price": 24771.24
+      "median_price": 24239.53
     },
     {
       "month": "2026-05",
       "category": "Sneakers",
-      "median_price": 409.46
+      "median_price": 415.77
     },
     {
       "month": "2026-05",
       "category": "Trading Cards",
-      "median_price": 2438.31
+      "median_price": 2538.05
     },
     {
       "month": "2026-05",
       "category": "Video Games",
-      "median_price": 752.44
+      "median_price": 855.74
     },
     {
       "month": "2026-05",
       "category": "Vintage Clothing",
-      "median_price": 676.65
+      "median_price": 532.46
     },
     {
       "month": "2026-05",
       "category": "Watches",
-      "median_price": 43372.4
-    },
-    {
-      "month": "2026-06",
-      "category": "Collectibles",
-      "median_price": 7734.84
-    },
-    {
-      "month": "2026-06",
-      "category": "Electronics",
-      "median_price": 814.79
-    },
-    {
-      "month": "2026-06",
-      "category": "Furniture",
-      "median_price": 6311.7
-    },
-    {
-      "month": "2026-06",
-      "category": "Sneakers",
-      "median_price": 268.42
-    },
-    {
-      "month": "2026-06",
-      "category": "Trading Cards",
-      "median_price": 5089.0
-    },
-    {
-      "month": "2026-06",
-      "category": "Vintage Clothing",
-      "median_price": 633.12
-    },
-    {
-      "month": "2026-06",
-      "category": "Watches",
-      "median_price": 82554.22
+      "median_price": 41794.71
     }
   ],
   "top_brands": [
     {
       "category_display": "Cameras & Lenses",
       "brand": "Leica",
-      "count": 511,
-      "median_price": 5253.7
-    },
-    {
-      "category_display": "Cameras & Lenses",
-      "brand": "Canon",
-      "count": 519,
-      "median_price": 5231.62
-    },
-    {
-      "category_display": "Cameras & Lenses",
-      "brand": "Hasselblad",
-      "count": 509,
-      "median_price": 5133.15
+      "count": 516,
+      "median_price": 4984.35
     },
     {
       "category_display": "Cameras & Lenses",
       "brand": "Nikon",
-      "count": 521,
-      "median_price": 5095.88
+      "count": 499,
+      "median_price": 4968.11
     },
     {
       "category_display": "Cameras & Lenses",
-      "brand": "Sony",
-      "count": 492,
-      "median_price": 4919.8
+      "brand": "Olympus",
+      "count": 524,
+      "median_price": 4961.72
     },
     {
-      "category_display": "Collectibles",
-      "brand": "KAWS",
-      "count": 658,
-      "median_price": 5762.12
+      "category_display": "Cameras & Lenses",
+      "brand": "Fujifilm",
+      "count": 558,
+      "median_price": 4797.7
     },
     {
-      "category_display": "Collectibles",
-      "brand": "Hot Wheels",
-      "count": 588,
-      "median_price": 5600.25
-    },
-    {
-      "category_display": "Collectibles",
-      "brand": "LEGO",
-      "count": 605,
-      "median_price": 5488.49
+      "category_display": "Cameras & Lenses",
+      "brand": "Hasselblad",
+      "count": 525,
+      "median_price": 4782.4
     },
     {
       "category_display": "Collectibles",
       "brand": "Medicom Toy",
-      "count": 570,
-      "median_price": 5383.66
+      "count": 597,
+      "median_price": 5615.89
     },
     {
       "category_display": "Collectibles",
       "brand": "Funko Pop",
-      "count": 629,
-      "median_price": 5364.52
+      "count": 624,
+      "median_price": 5541.19
+    },
+    {
+      "category_display": "Collectibles",
+      "brand": "LEGO",
+      "count": 614,
+      "median_price": 5413.01
+    },
+    {
+      "category_display": "Collectibles",
+      "brand": "Bearbrick",
+      "count": 593,
+      "median_price": 5126.25
+    },
+    {
+      "category_display": "Collectibles",
+      "brand": "Hot Wheels",
+      "count": 642,
+      "median_price": 5113.19
     },
     {
       "category_display": "Electronics",
-      "brand": "Samsung",
-      "count": 479,
-      "median_price": 1240.55
+      "brand": "Bose",
+      "count": 433,
+      "median_price": 1222.59
     },
     {
       "category_display": "Electronics",
-      "brand": "Sony",
-      "count": 424,
-      "median_price": 1180.53
-    },
-    {
-      "category_display": "Electronics",
-      "brand": "Meta",
-      "count": 427,
-      "median_price": 1157.16
-    },
-    {
-      "category_display": "Electronics",
-      "brand": "LG",
-      "count": 462,
-      "median_price": 1154.95
+      "brand": "Dyson",
+      "count": 446,
+      "median_price": 1195.66
     },
     {
       "category_display": "Electronics",
       "brand": "Apple",
-      "count": 443,
-      "median_price": 1142.82
-    },
-    {
-      "category_display": "Furniture",
-      "brand": "CB2",
-      "count": 463,
-      "median_price": 4128.99
-    },
-    {
-      "category_display": "Furniture",
-      "brand": "West Elm",
       "count": 485,
-      "median_price": 3923.24
+      "median_price": 1165.5
+    },
+    {
+      "category_display": "Electronics",
+      "brand": "Dell",
+      "count": 426,
+      "median_price": 1151.65
+    },
+    {
+      "category_display": "Electronics",
+      "brand": "Sony",
+      "count": 455,
+      "median_price": 1115.22
     },
     {
       "category_display": "Furniture",
       "brand": "Knoll",
-      "count": 513,
-      "median_price": 3830.72
-    },
-    {
-      "category_display": "Furniture",
-      "brand": "Eames",
-      "count": 465,
-      "median_price": 3764.48
+      "count": 501,
+      "median_price": 3807.71
     },
     {
       "category_display": "Furniture",
       "brand": "IKEA",
-      "count": 485,
-      "median_price": 3729.01
+      "count": 470,
+      "median_price": 3722.22
     },
     {
-      "category_display": "Handbags",
-      "brand": "Prada",
-      "count": 535,
-      "median_price": 23726.75
+      "category_display": "Furniture",
+      "brand": "Restoration Hardware",
+      "count": 489,
+      "median_price": 3702.66
     },
     {
-      "category_display": "Handbags",
-      "brand": "Bottega Veneta",
-      "count": 492,
-      "median_price": 23535.24
+      "category_display": "Furniture",
+      "brand": "Eames",
+      "count": 478,
+      "median_price": 3686.62
     },
     {
-      "category_display": "Handbags",
-      "brand": "Louis Vuitton",
-      "count": 521,
-      "median_price": 22528.15
+      "category_display": "Furniture",
+      "brand": "West Elm",
+      "count": 510,
+      "median_price": 3684.47
     },
     {
       "category_display": "Handbags",
       "brand": "Celine",
-      "count": 494,
-      "median_price": 22009.07
+      "count": 500,
+      "median_price": 24849.65
+    },
+    {
+      "category_display": "Handbags",
+      "brand": "Prada",
+      "count": 523,
+      "median_price": 24293.32
     },
     {
       "category_display": "Handbags",
       "brand": "Herm\u00e8s",
-      "count": 521,
-      "median_price": 21986.3
+      "count": 517,
+      "median_price": 23980.12
     },
     {
-      "category_display": "Sneakers",
-      "brand": "Nike",
-      "count": 429,
-      "median_price": 395.36
+      "category_display": "Handbags",
+      "brand": "Chanel",
+      "count": 495,
+      "median_price": 23683.76
+    },
+    {
+      "category_display": "Handbags",
+      "brand": "Gucci",
+      "count": 539,
+      "median_price": 23569.0
     },
     {
       "category_display": "Sneakers",
       "brand": "New Balance Collab",
-      "count": 427,
-      "median_price": 389.58
+      "count": 462,
+      "median_price": 391.58
     },
     {
       "category_display": "Sneakers",
-      "brand": "Jordan",
-      "count": 423,
-      "median_price": 388.08
+      "brand": "Salehe Bembury",
+      "count": 414,
+      "median_price": 390.1
     },
     {
       "category_display": "Sneakers",
-      "brand": "New Balance",
-      "count": 461,
-      "median_price": 386.9
+      "brand": "Nike",
+      "count": 463,
+      "median_price": 389.47
     },
     {
       "category_display": "Sneakers",
       "brand": "Yeezy",
-      "count": 424,
-      "median_price": 370.5
+      "count": 430,
+      "median_price": 385.1
     },
     {
-      "category_display": "Trading Cards",
-      "brand": "Pokemon",
-      "count": 588,
-      "median_price": 2498.1
-    },
-    {
-      "category_display": "Trading Cards",
-      "brand": "NFL Panini",
-      "count": 578,
-      "median_price": 2469.58
-    },
-    {
-      "category_display": "Trading Cards",
-      "brand": "Magic: The Gathering",
-      "count": 597,
-      "median_price": 2437.74
+      "category_display": "Sneakers",
+      "brand": "Asics",
+      "count": 413,
+      "median_price": 375.6
     },
     {
       "category_display": "Trading Cards",
       "brand": "NBA Topps",
-      "count": 592,
-      "median_price": 2305.78
+      "count": 549,
+      "median_price": 2396.98
     },
     {
       "category_display": "Trading Cards",
-      "brand": "One Piece",
-      "count": 586,
-      "median_price": 2262.39
+      "brand": "NFL Panini",
+      "count": 552,
+      "median_price": 2386.69
+    },
+    {
+      "category_display": "Trading Cards",
+      "brand": "Pokemon",
+      "count": 563,
+      "median_price": 2316.04
+    },
+    {
+      "category_display": "Trading Cards",
+      "brand": "Magic: The Gathering",
+      "count": 635,
+      "median_price": 2281.45
+    },
+    {
+      "category_display": "Trading Cards",
+      "brand": "Dragon Ball Z",
+      "count": 640,
+      "median_price": 2185.33
     },
     {
       "category_display": "Video Games",
       "brand": "Nintendo",
-      "count": 576,
-      "median_price": 958.75
+      "count": 580,
+      "median_price": 893.93
     },
     {
       "category_display": "Video Games",
       "brand": "Atari",
-      "count": 592,
-      "median_price": 910.79
-    },
-    {
-      "category_display": "Video Games",
-      "brand": "Microsoft",
-      "count": 594,
-      "median_price": 885.6
-    },
-    {
-      "category_display": "Video Games",
-      "brand": "Sony",
-      "count": 602,
-      "median_price": 865.61
+      "count": 565,
+      "median_price": 881.42
     },
     {
       "category_display": "Video Games",
       "brand": "Sega",
-      "count": 589,
-      "median_price": 848.02
+      "count": 625,
+      "median_price": 873.32
+    },
+    {
+      "category_display": "Video Games",
+      "brand": "Sony",
+      "count": 604,
+      "median_price": 865.11
+    },
+    {
+      "category_display": "Video Games",
+      "brand": "Limited Run Games",
+      "count": 592,
+      "median_price": 861.66
     },
     {
       "category_display": "Vintage Clothing",
-      "brand": "Carhartt WIP",
-      "count": 403,
-      "median_price": 591.2
+      "brand": "Supreme",
+      "count": 423,
+      "median_price": 596.05
     },
     {
       "category_display": "Vintage Clothing",
-      "brand": "Band Tee",
-      "count": 458,
-      "median_price": 565.63
-    },
-    {
-      "category_display": "Vintage Clothing",
-      "brand": "Vintage Nike",
-      "count": 462,
-      "median_price": 557.83
-    },
-    {
-      "category_display": "Vintage Clothing",
-      "brand": "St\u00fcssy",
-      "count": 451,
-      "median_price": 555.01
+      "brand": "Vintage Levi's",
+      "count": 449,
+      "median_price": 591.03
     },
     {
       "category_display": "Vintage Clothing",
       "brand": "Tommy Hilfiger",
-      "count": 455,
-      "median_price": 550.93
+      "count": 441,
+      "median_price": 576.74
+    },
+    {
+      "category_display": "Vintage Clothing",
+      "brand": "Vintage Nike",
+      "count": 437,
+      "median_price": 557.88
+    },
+    {
+      "category_display": "Vintage Clothing",
+      "brand": "Carhartt WIP",
+      "count": 427,
+      "median_price": 541.94
     },
     {
       "category_display": "Watches",
-      "brand": "Omega",
-      "count": 500,
-      "median_price": 48028.33
+      "brand": "Patek Philippe",
+      "count": 487,
+      "median_price": 46919.4
     },
     {
       "category_display": "Watches",
       "brand": "TAG Heuer",
-      "count": 532,
-      "median_price": 46687.6
-    },
-    {
-      "category_display": "Watches",
-      "brand": "AP",
-      "count": 470,
-      "median_price": 44828.71
-    },
-    {
-      "category_display": "Watches",
-      "brand": "Grand Seiko",
-      "count": 503,
-      "median_price": 44581.64
+      "count": 500,
+      "median_price": 45763.89
     },
     {
       "category_display": "Watches",
       "brand": "Rolex",
-      "count": 538,
-      "median_price": 43620.54
+      "count": 506,
+      "median_price": 45586.65
+    },
+    {
+      "category_display": "Watches",
+      "brand": "Grand Seiko",
+      "count": 504,
+      "median_price": 45415.65
+    },
+    {
+      "category_display": "Watches",
+      "brand": "Omega",
+      "count": 520,
+      "median_price": 44535.76
     }
   ],
   "daily_vol": [],
   "anomalies": [
     {
-      "title": "Sony NES Classic Edition \u2014 New",
-      "category_display": "Video Games",
-      "source_display": "Amazon",
-      "price": 5464.71,
-      "cat_median": 877.17,
-      "price_ratio": 6.23,
+      "title": "Magic: The Gathering Limited Collector Edition \u2014 Good",
+      "category_display": "Trading Cards",
+      "source_display": "StockX",
+      "price": 15752.43,
+      "cat_median": 2279.69,
+      "price_ratio": 6.91,
+      "condition": "good"
+    },
+    {
+      "title": "IKEA Dining Table Walnut \u2014 New",
+      "category_display": "Furniture",
+      "source_display": "GOAT",
+      "price": 23898.57,
+      "cat_median": 3641.66,
+      "price_ratio": 6.56,
       "condition": "new"
     },
     {
-      "title": "Prada Speedy 30 \u2014 Like New",
-      "category_display": "Handbags",
-      "source_display": "StockX",
-      "price": 137233.64,
-      "cat_median": 22485.72,
-      "price_ratio": 6.1,
-      "condition": "like_new"
-    },
-    {
-      "title": "Knoll Sectional Sofa \u2014 Good",
+      "title": "West Elm Mid-Century Dresser \u2014 Good",
       "category_display": "Furniture",
-      "source_display": "Amazon",
-      "price": 22882.67,
-      "cat_median": 3773.82,
-      "price_ratio": 6.06,
+      "source_display": "GOAT",
+      "price": 23008.0,
+      "cat_median": 3641.66,
+      "price_ratio": 6.32,
       "condition": "good"
     },
     {
-      "title": "Vintage Band Tee Fleece Jacket Size XL",
-      "category_display": "Vintage Clothing",
+      "title": "Pokemon 1st Edition \u2014 Like New",
+      "category_display": "Trading Cards",
       "source_display": "Amazon",
-      "price": 3287.33,
-      "cat_median": 548.39,
-      "price_ratio": 5.99,
+      "price": 13989.96,
+      "cat_median": 2279.69,
+      "price_ratio": 6.14,
       "condition": "like_new"
     },
     {
-      "title": "Leica R5 Mark II \u2014 Like New",
-      "category_display": "Cameras & Lenses",
+      "title": "Omega Carrera Chronograph \u2014 Like New",
+      "category_display": "Watches",
       "source_display": "StockX",
-      "price": 29847.06,
-      "cat_median": 5031.39,
-      "price_ratio": 5.93,
+      "price": 268236.79,
+      "cat_median": 44535.42,
+      "price_ratio": 6.02,
       "condition": "like_new"
     },
     {
-      "title": "Knoll Aeron Chair \u2014 New",
-      "category_display": "Furniture",
+      "title": "Seiko Carrera Chronograph \u2014 Poor",
+      "category_display": "Watches",
       "source_display": "StockX",
-      "price": 21950.07,
-      "cat_median": 3773.82,
-      "price_ratio": 5.82,
-      "condition": "new"
-    },
-    {
-      "title": "Vintage Tommy Hilfiger OG Boxy T-Shirt Size XL",
-      "category_display": "Vintage Clothing",
-      "source_display": "Amazon",
-      "price": 3183.38,
-      "cat_median": 548.39,
-      "price_ratio": 5.8,
-      "condition": "good"
-    },
-    {
-      "title": "IKEA Noguchi Coffee Table \u2014 Good",
-      "category_display": "Furniture",
-      "source_display": "eBay",
-      "price": 21294.78,
-      "cat_median": 3773.82,
-      "price_ratio": 5.64,
-      "condition": "good"
-    },
-    {
-      "title": "Bearbrick LEGO UCS Millennium Falcon \u2014 Like New",
-      "category_display": "Collectibles",
-      "source_display": "Amazon",
-      "price": 30887.17,
-      "cat_median": 5479.27,
-      "price_ratio": 5.64,
-      "condition": "like_new"
-    },
-    {
-      "title": "Bearbrick Bearbrick 1000% \u2014 Poor",
-      "category_display": "Collectibles",
-      "source_display": "eBay",
-      "price": 30878.75,
-      "cat_median": 5479.27,
-      "price_ratio": 5.64,
+      "price": 263148.01,
+      "cat_median": 44535.42,
+      "price_ratio": 5.91,
       "condition": "poor"
     },
     {
-      "title": "Nintendo Zelda Tears of the Kingdom \u2014 Like New",
-      "category_display": "Video Games",
-      "source_display": "StockX",
-      "price": 4918.41,
-      "cat_median": 877.17,
-      "price_ratio": 5.61,
-      "condition": "like_new"
-    },
-    {
-      "title": "Magic: The Gathering 1st Edition \u2014 Like New",
-      "category_display": "Trading Cards",
-      "source_display": "eBay",
-      "price": 13133.53,
-      "cat_median": 2353.36,
-      "price_ratio": 5.58,
-      "condition": "like_new"
-    },
-    {
-      "title": "Vintage St\u00fcssy Box Logo Hoodie Size XXL",
-      "category_display": "Vintage Clothing",
-      "source_display": "StockX",
-      "price": 3056.84,
-      "cat_median": 548.39,
-      "price_ratio": 5.57,
+      "title": "LEGO Mickey Mouse Original \u2014 Good",
+      "category_display": "Collectibles",
+      "source_display": "Mercari",
+      "price": 30736.95,
+      "cat_median": 5266.89,
+      "price_ratio": 5.84,
       "condition": "good"
     },
     {
-      "title": "Rolex Royal Oak 15500 \u2014 Fair",
-      "category_display": "Watches",
+      "title": "KAWS KAWS Companion BFF \u2014 New",
+      "category_display": "Collectibles",
+      "source_display": "Amazon",
+      "price": 30577.35,
+      "cat_median": 5266.89,
+      "price_ratio": 5.81,
+      "condition": "new"
+    },
+    {
+      "title": "Eames Sectional Sofa \u2014 Like New",
+      "category_display": "Furniture",
       "source_display": "GOAT",
-      "price": 250437.54,
-      "cat_median": 45063.6,
+      "price": 20974.78,
+      "cat_median": 3641.66,
+      "price_ratio": 5.76,
+      "condition": "like_new"
+    },
+    {
+      "title": "NBA Topps Limited Collector Edition \u2014 Poor",
+      "category_display": "Trading Cards",
+      "source_display": "StockX",
+      "price": 13077.8,
+      "cat_median": 2279.69,
+      "price_ratio": 5.74,
+      "condition": "poor"
+    },
+    {
+      "title": "Nintendo Xbox Series X \u2014 New",
+      "category_display": "Video Games",
+      "source_display": "GOAT",
+      "price": 4930.92,
+      "cat_median": 868.35,
+      "price_ratio": 5.68,
+      "condition": "new"
+    },
+    {
+      "title": "Atari Xbox Series X \u2014 Good",
+      "category_display": "Video Games",
+      "source_display": "Amazon",
+      "price": 4912.0,
+      "cat_median": 868.35,
+      "price_ratio": 5.66,
+      "condition": "good"
+    },
+    {
+      "title": "Pokemon Charizard Base Set \u2014 New",
+      "category_display": "Trading Cards",
+      "source_display": "StockX",
+      "price": 12734.87,
+      "cat_median": 2279.69,
+      "price_ratio": 5.59,
+      "condition": "new"
+    },
+    {
+      "title": "Bose AirPods Pro 2 \u2014 Good",
+      "category_display": "Electronics",
+      "source_display": "Amazon",
+      "price": 6337.54,
+      "cat_median": 1134.95,
+      "price_ratio": 5.58,
+      "condition": "good"
+    },
+    {
+      "title": "LEGO Bearbrick 1000% \u2014 Fair",
+      "category_display": "Collectibles",
+      "source_display": "Mercari",
+      "price": 29261.46,
+      "cat_median": 5266.89,
       "price_ratio": 5.56,
       "condition": "fair"
     },
     {
-      "title": "Funko Pop Hot Wheels Redline \u2014 Like New",
-      "category_display": "Collectibles",
-      "source_display": "eBay",
-      "price": 30358.23,
-      "cat_median": 5479.27,
+      "title": "Bose WH-1000XM5 \u2014 Like New",
+      "category_display": "Electronics",
+      "source_display": "GOAT",
+      "price": 6289.95,
+      "cat_median": 1134.95,
       "price_ratio": 5.54,
       "condition": "like_new"
     },
     {
-      "title": "KAWS Mickey Mouse Original \u2014 Like New",
+      "title": "Funko Pop Vintage Action Figure MOC \u2014 Like New",
       "category_display": "Collectibles",
-      "source_display": "eBay",
-      "price": 30326.06,
-      "cat_median": 5479.27,
-      "price_ratio": 5.53,
+      "source_display": "Amazon",
+      "price": 29170.25,
+      "cat_median": 5266.89,
+      "price_ratio": 5.54,
       "condition": "like_new"
     },
     {
-      "title": "Funko Pop Vintage Action Figure MOC \u2014 New",
+      "title": "Herman Miller Noguchi Coffee Table \u2014 Fair",
+      "category_display": "Furniture",
+      "source_display": "eBay",
+      "price": 20164.33,
+      "cat_median": 3641.66,
+      "price_ratio": 5.54,
+      "condition": "fair"
+    },
+    {
+      "title": "Rolex SARB033 \u2014 Like New",
+      "category_display": "Watches",
+      "source_display": "StockX",
+      "price": 246527.77,
+      "cat_median": 44535.42,
+      "price_ratio": 5.54,
+      "condition": "like_new"
+    },
+    {
+      "title": "Grand Seiko Nautilus 5711 \u2014 New",
+      "category_display": "Watches",
+      "source_display": "GOAT",
+      "price": 246527.02,
+      "cat_median": 44535.42,
+      "price_ratio": 5.54,
+      "condition": "new"
+    },
+    {
+      "title": "KAWS Vintage Action Figure MOC \u2014 Like New",
       "category_display": "Collectibles",
       "source_display": "Mercari",
-      "price": 30207.04,
-      "cat_median": 5479.27,
-      "price_ratio": 5.51,
-      "condition": "new"
-    },
-    {
-      "title": "Louis Vuitton Cassette Intrecciato \u2014 New",
-      "category_display": "Handbags",
-      "source_display": "StockX",
-      "price": 123063.59,
-      "cat_median": 22485.72,
-      "price_ratio": 5.47,
-      "condition": "new"
-    },
-    {
-      "title": "NFL Panini Charizard Base Set \u2014 Like New",
-      "category_display": "Trading Cards",
-      "source_display": "eBay",
-      "price": 12839.13,
-      "cat_median": 2353.36,
+      "price": 28740.89,
+      "cat_median": 5266.89,
       "price_ratio": 5.46,
       "condition": "like_new"
     },
     {
-      "title": "Grand Seiko Submariner Date \u2014 New",
-      "category_display": "Watches",
-      "source_display": "GOAT",
-      "price": 244975.37,
-      "cat_median": 45063.6,
-      "price_ratio": 5.44,
-      "condition": "new"
-    },
-    {
-      "title": "Bearbrick Hot Wheels Redline \u2014 Good",
-      "category_display": "Collectibles",
+      "title": "West Elm Sectional Sofa \u2014 Poor",
+      "category_display": "Furniture",
       "source_display": "Facebook Marketplace",
-      "price": 29678.97,
-      "cat_median": 5479.27,
-      "price_ratio": 5.42,
+      "price": 19784.05,
+      "cat_median": 3641.66,
+      "price_ratio": 5.43,
+      "condition": "poor"
+    },
+    {
+      "title": "Vintage Vintage Nike Box Logo Hoodie Size M",
+      "category_display": "Vintage Clothing",
+      "source_display": "StockX",
+      "price": 3028.92,
+      "cat_median": 557.55,
+      "price_ratio": 5.43,
       "condition": "good"
     },
     {
-      "title": "Funko Pop LEGO UCS Millennium Falcon \u2014 Good",
+      "title": "Medicom Toy Vintage Action Figure MOC \u2014 Like New",
       "category_display": "Collectibles",
-      "source_display": "Amazon",
-      "price": 29506.36,
-      "cat_median": 5479.27,
-      "price_ratio": 5.39,
-      "condition": "good"
+      "source_display": "StockX",
+      "price": 28576.94,
+      "cat_median": 5266.89,
+      "price_ratio": 5.43,
+      "condition": "like_new"
     },
     {
-      "title": "Funko Pop KAWS Companion BFF \u2014 Like New",
-      "category_display": "Collectibles",
-      "source_display": "Mercari",
-      "price": 29287.54,
-      "cat_median": 5479.27,
+      "title": "Vintage St\u00fcssy World Tour Tee Size XL",
+      "category_display": "Vintage Clothing",
+      "source_display": "GOAT",
+      "price": 2985.57,
+      "cat_median": 557.55,
       "price_ratio": 5.35,
       "condition": "like_new"
     },
     {
-      "title": "AP Nautilus 5711 \u2014 Like New",
-      "category_display": "Watches",
-      "source_display": "StockX",
-      "price": 240135.29,
-      "cat_median": 45063.6,
-      "price_ratio": 5.33,
+      "title": "Hot Wheels Air Jordan 1 Diorama \u2014 Like New",
+      "category_display": "Collectibles",
+      "source_display": "eBay",
+      "price": 28119.97,
+      "cat_median": 5266.89,
+      "price_ratio": 5.34,
       "condition": "like_new"
     },
     {
-      "title": "Sega PS5 Console \u2014 Like New",
-      "category_display": "Video Games",
-      "source_display": "GOAT",
-      "price": 4648.81,
-      "cat_median": 877.17,
+      "title": "Hot Wheels LEGO UCS Millennium Falcon \u2014 Fair",
+      "category_display": "Collectibles",
+      "source_display": "Mercari",
+      "price": 27951.61,
+      "cat_median": 5266.89,
+      "price_ratio": 5.31,
+      "condition": "fair"
+    },
+    {
+      "title": "Dragon Ball Z 1st Edition \u2014 Like New",
+      "category_display": "Trading Cards",
+      "source_display": "eBay",
+      "price": 12083.47,
+      "cat_median": 2279.69,
       "price_ratio": 5.3,
       "condition": "like_new"
     },
     {
-      "title": "One Piece Black Lotus Alpha \u2014 Good",
-      "category_display": "Trading Cards",
+      "title": "Samsung OLED C3 TV \u2014 Like New",
+      "category_display": "Electronics",
       "source_display": "GOAT",
-      "price": 12438.92,
-      "cat_median": 2353.36,
-      "price_ratio": 5.29,
-      "condition": "good"
+      "price": 6010.04,
+      "cat_median": 1134.95,
+      "price_ratio": 5.3,
+      "condition": "like_new"
     },
     {
-      "title": "LG Galaxy S24 Ultra \u2014 Like New",
-      "category_display": "Electronics",
+      "title": "Vintage St\u00fcssy Box Logo Hoodie Size XL",
+      "category_display": "Vintage Clothing",
       "source_display": "eBay",
-      "price": 6045.14,
-      "cat_median": 1145.33,
+      "price": 2944.73,
+      "cat_median": 557.55,
       "price_ratio": 5.28,
-      "condition": "like_new"
+      "condition": "new"
     },
     {
-      "title": "Magic: The Gathering Booster Box Sealed \u2014 Like New",
-      "category_display": "Trading Cards",
-      "source_display": "StockX",
-      "price": 12410.34,
-      "cat_median": 2353.36,
-      "price_ratio": 5.27,
-      "condition": "like_new"
-    },
-    {
-      "title": "Chanel Re-Edition 2000 \u2014 Good",
-      "category_display": "Handbags",
-      "source_display": "GOAT",
-      "price": 118331.86,
-      "cat_median": 22485.72,
-      "price_ratio": 5.26,
-      "condition": "good"
-    },
-    {
-      "title": "Bose OLED C3 TV \u2014 Good",
-      "category_display": "Electronics",
-      "source_display": "eBay",
-      "price": 6025.81,
-      "cat_median": 1145.33,
-      "price_ratio": 5.26,
-      "condition": "good"
-    },
-    {
-      "title": "Knoll Barcelona Chair \u2014 Good",
-      "category_display": "Furniture",
+      "title": "Bearbrick Vintage Action Figure MOC \u2014 Good",
+      "category_display": "Collectibles",
       "source_display": "Amazon",
-      "price": 19794.88,
-      "cat_median": 3773.82,
+      "price": 27771.79,
+      "cat_median": 5266.89,
+      "price_ratio": 5.27,
+      "condition": "good"
+    },
+    {
+      "title": "Vintage St\u00fcssy Varsity Jacket Size M",
+      "category_display": "Vintage Clothing",
+      "source_display": "eBay",
+      "price": 2926.07,
+      "cat_median": 557.55,
       "price_ratio": 5.25,
       "condition": "good"
     },
     {
-      "title": "Pokemon 1st Edition \u2014 Good",
-      "category_display": "Trading Cards",
+      "title": "KAWS Bearbrick 1000% \u2014 Like New",
+      "category_display": "Collectibles",
       "source_display": "GOAT",
-      "price": 12342.4,
-      "cat_median": 2353.36,
-      "price_ratio": 5.24,
+      "price": 27559.99,
+      "cat_median": 5266.89,
+      "price_ratio": 5.23,
+      "condition": "like_new"
+    },
+    {
+      "title": "LEGO Air Jordan 1 Diorama \u2014 Good",
+      "category_display": "Collectibles",
+      "source_display": "StockX",
+      "price": 27511.86,
+      "cat_median": 5266.89,
+      "price_ratio": 5.22,
       "condition": "good"
     },
     {
-      "title": "Vintage Tommy Hilfiger 501 Denim Jeans Size S",
+      "title": "Vintage Supreme Varsity Jacket Size M",
       "category_display": "Vintage Clothing",
-      "source_display": "Facebook Marketplace",
-      "price": 2864.93,
-      "cat_median": 548.39,
+      "source_display": "Amazon",
+      "price": 2911.32,
+      "cat_median": 557.55,
       "price_ratio": 5.22,
-      "condition": "like_new"
+      "condition": "fair"
     },
     {
-      "title": "CB2 Aeron Chair \u2014 New",
-      "category_display": "Furniture",
-      "source_display": "StockX",
-      "price": 19664.71,
-      "cat_median": 3773.82,
-      "price_ratio": 5.21,
+      "title": "Pokemon Limited Collector Edition \u2014 New",
+      "category_display": "Trading Cards",
+      "source_display": "eBay",
+      "price": 11890.83,
+      "cat_median": 2279.69,
+      "price_ratio": 5.22,
       "condition": "new"
     },
     {
-      "title": "Dragon Ball Z Holographic Rare \u2014 Like New",
-      "category_display": "Trading Cards",
-      "source_display": "StockX",
-      "price": 12253.81,
-      "cat_median": 2353.36,
-      "price_ratio": 5.21,
-      "condition": "like_new"
-    },
-    {
-      "title": "IKEA Malm Bed Frame \u2014 Like New",
+      "title": "Restoration Hardware Barcelona Chair \u2014 Like New",
       "category_display": "Furniture",
-      "source_display": "Mercari",
-      "price": 19610.77,
-      "cat_median": 3773.82,
+      "source_display": "Amazon",
+      "price": 18937.47,
+      "cat_median": 3641.66,
       "price_ratio": 5.2,
       "condition": "like_new"
     },
     {
-      "title": "LEGO KAWS Companion BFF \u2014 Good",
-      "category_display": "Collectibles",
-      "source_display": "eBay",
-      "price": 28228.81,
-      "cat_median": 5479.27,
-      "price_ratio": 5.15,
-      "condition": "good"
-    },
-    {
-      "title": "Funko Pop Vintage Action Figure MOC \u2014 Good",
-      "category_display": "Collectibles",
-      "source_display": "Mercari",
-      "price": 28186.63,
-      "cat_median": 5479.27,
-      "price_ratio": 5.14,
-      "condition": "good"
-    },
-    {
-      "title": "Celine Dionysus GG \u2014 Good",
-      "category_display": "Handbags",
-      "source_display": "StockX",
-      "price": 115394.65,
-      "cat_median": 22485.72,
-      "price_ratio": 5.13,
-      "condition": "good"
-    },
-    {
-      "title": "TAG Heuer SARB033 \u2014 Fair",
+      "title": "Seiko Carrera Chronograph \u2014 Like New",
       "category_display": "Watches",
-      "source_display": "Amazon",
-      "price": 231155.29,
-      "cat_median": 45063.6,
-      "price_ratio": 5.13,
-      "condition": "fair"
+      "source_display": "StockX",
+      "price": 230699.9,
+      "cat_median": 44535.42,
+      "price_ratio": 5.18,
+      "condition": "like_new"
+    },
+    {
+      "title": "Nikon Fujinon 56mm \u2014 Good",
+      "category_display": "Cameras & Lenses",
+      "source_display": "eBay",
+      "price": 24702.24,
+      "cat_median": 4777.2,
+      "price_ratio": 5.17,
+      "condition": "good"
+    },
+    {
+      "title": "Nikon X-T5 \u2014 New",
+      "category_display": "Cameras & Lenses",
+      "source_display": "StockX",
+      "price": 24644.02,
+      "cat_median": 4777.2,
+      "price_ratio": 5.16,
+      "condition": "new"
     }
   ],
   "src_premium": [
     {
       "source_display": "Amazon",
-      "premium": -14.52
+      "premium": -15.67
     },
     {
       "source_display": "eBay",
-      "premium": -4.99
+      "premium": -6.19
     },
     {
       "source_display": "Facebook Marketplace",
-      "premium": -24.21
+      "premium": -25.7
     },
     {
       "source_display": "GOAT",
-      "premium": 73.37
+      "premium": 70.36
     },
     {
       "source_display": "Mercari",
-      "premium": 3.17
+      "premium": 1.55
     },
     {
       "source_display": "StockX",
-      "premium": 60.92
+      "premium": 50.71
     }
   ],
   "cond": [
     {
       "condition": "fair",
       "category": "Cameras & Lenses",
-      "median_price": 5044.14
+      "median_price": 4708.23
     },
     {
       "condition": "fair",
       "category": "Collectibles",
-      "median_price": 5615.74
+      "median_price": 5109.0
     },
     {
       "condition": "fair",
       "category": "Electronics",
-      "median_price": 1099.8
+      "median_price": 1197.73
     },
     {
       "condition": "fair",
       "category": "Furniture",
-      "median_price": 3964.25
+      "median_price": 3640.77
     },
     {
       "condition": "fair",
       "category": "Handbags",
-      "median_price": 22020.99
+      "median_price": 22999.33
     },
     {
       "condition": "fair",
       "category": "Sneakers",
-      "median_price": 361.4
+      "median_price": 359.58
     },
     {
       "condition": "fair",
       "category": "Trading Cards",
-      "median_price": 2335.08
+      "median_price": 2274.91
     },
     {
       "condition": "fair",
       "category": "Video Games",
-      "median_price": 855.7
+      "median_price": 843.05
     },
     {
       "condition": "fair",
       "category": "Vintage Clothing",
-      "median_price": 539.42
+      "median_price": 535.16
     },
     {
       "condition": "fair",
       "category": "Watches",
-      "median_price": 43735.89
+      "median_price": 44020.65
     },
     {
       "condition": "good",
       "category": "Cameras & Lenses",
-      "median_price": 5166.29
+      "median_price": 4796.64
     },
     {
       "condition": "good",
       "category": "Collectibles",
-      "median_price": 5536.85
+      "median_price": 5182.59
     },
     {
       "condition": "good",
       "category": "Electronics",
-      "median_price": 1166.11
+      "median_price": 1091.03
     },
     {
       "condition": "good",
       "category": "Furniture",
-      "median_price": 3829.87
+      "median_price": 3833.86
     },
     {
       "condition": "good",
       "category": "Handbags",
-      "median_price": 21708.18
+      "median_price": 23936.38
     },
     {
       "condition": "good",
       "category": "Sneakers",
-      "median_price": 382.12
+      "median_price": 384.54
     },
     {
       "condition": "good",
       "category": "Trading Cards",
-      "median_price": 2368.71
+      "median_price": 2355.28
     },
     {
       "condition": "good",
       "category": "Video Games",
-      "median_price": 854.32
+      "median_price": 855.79
     },
     {
       "condition": "good",
       "category": "Vintage Clothing",
-      "median_price": 550.95
+      "median_price": 566.1
     },
     {
       "condition": "good",
       "category": "Watches",
-      "median_price": 43335.47
+      "median_price": 43237.06
     },
     {
       "condition": "like_new",
       "category": "Cameras & Lenses",
-      "median_price": 5031.39
+      "median_price": 4745.56
     },
     {
       "condition": "like_new",
       "category": "Collectibles",
-      "median_price": 5507.8
+      "median_price": 5150.65
     },
     {
       "condition": "like_new",
       "category": "Electronics",
-      "median_price": 1142.81
+      "median_price": 1128.18
     },
     {
       "condition": "like_new",
       "category": "Furniture",
-      "median_price": 3702.73
+      "median_price": 3585.65
     },
     {
       "condition": "like_new",
       "category": "Handbags",
-      "median_price": 23322.06
+      "median_price": 23805.73
     },
     {
       "condition": "like_new",
       "category": "Sneakers",
-      "median_price": 373.99
+      "median_price": 371.71
     },
     {
       "condition": "like_new",
       "category": "Trading Cards",
-      "median_price": 2378.53
+      "median_price": 2173.28
     },
     {
       "condition": "like_new",
       "category": "Video Games",
-      "median_price": 922.75
+      "median_price": 880.11
     },
     {
       "condition": "like_new",
       "category": "Vintage Clothing",
-      "median_price": 565.56
+      "median_price": 547.16
     },
     {
       "condition": "like_new",
       "category": "Watches",
-      "median_price": 46318.41
+      "median_price": 44954.51
     },
     {
       "condition": "new",
       "category": "Cameras & Lenses",
-      "median_price": 4891.1
+      "median_price": 4754.54
     },
     {
       "condition": "new",
       "category": "Collectibles",
-      "median_price": 5358.91
+      "median_price": 5544.28
     },
     {
       "condition": "new",
       "category": "Electronics",
-      "median_price": 1137.83
+      "median_price": 1152.3
     },
     {
       "condition": "new",
       "category": "Furniture",
-      "median_price": 3608.96
+      "median_price": 3618.65
     },
     {
       "condition": "new",
       "category": "Handbags",
-      "median_price": 22093.04
+      "median_price": 25360.62
     },
     {
       "condition": "new",
       "category": "Sneakers",
-      "median_price": 379.41
+      "median_price": 390.1
     },
     {
       "condition": "new",
       "category": "Trading Cards",
-      "median_price": 2287.76
+      "median_price": 2249.34
     },
     {
       "condition": "new",
       "category": "Video Games",
-      "median_price": 845.04
+      "median_price": 873.32
     },
     {
       "condition": "new",
       "category": "Vintage Clothing",
-      "median_price": 525.94
+      "median_price": 569.99
     },
     {
       "condition": "new",
       "category": "Watches",
-      "median_price": 45253.93
+      "median_price": 45273.33
     },
     {
       "condition": "poor",
       "category": "Cameras & Lenses",
-      "median_price": 4554.37
+      "median_price": 5420.24
     },
     {
       "condition": "poor",
       "category": "Collectibles",
-      "median_price": 5184.13
+      "median_price": 6068.65
     },
     {
       "condition": "poor",
       "category": "Electronics",
-      "median_price": 1149.37
+      "median_price": 1225.61
     },
     {
       "condition": "poor",
       "category": "Furniture",
-      "median_price": 3701.82
+      "median_price": 3118.13
     },
     {
       "condition": "poor",
       "category": "Handbags",
-      "median_price": 24193.26
+      "median_price": 20387.93
     },
     {
       "condition": "poor",
       "category": "Sneakers",
-      "median_price": 357.6
+      "median_price": 390.06
     },
     {
       "condition": "poor",
       "category": "Trading Cards",
-      "median_price": 2393.59
+      "median_price": 2482.48
     },
     {
       "condition": "poor",
       "category": "Video Games",
-      "median_price": 875.41
+      "median_price": 888.39
     },
     {
       "condition": "poor",
       "category": "Vintage Clothing",
-      "median_price": 515.65
+      "median_price": 590.02
     },
     {
       "condition": "poor",
       "category": "Watches",
-      "median_price": 46137.93
+      "median_price": 50892.71
     }
   ]
 }
