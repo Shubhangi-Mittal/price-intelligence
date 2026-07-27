@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-20T09:15:39.698986",
-  "total_records": 36206,
+  "generated_at": "2026-07-27T09:53:30.593609",
+  "total_records": 35049,
   "date_range": {
-    "start": "2026-04-21",
-    "end": "2026-07-20"
+    "start": "2026-04-28",
+    "end": "2026-07-27"
   },
   "categories": {
     "sneakers": "Sneakers",
