@@ -126,7 +126,9 @@ filtered as (
         -- stamped "now + 30 days" at generation time silently starts passing
         -- once 30 days of real time have elapsed.
         and listing_created_at <= ingested_at + interval 1 hour
-        and listing_created_at <= current_timestamp
+        -- Explicit cast: current_timestamp is TIMESTAMP WITH TIME ZONE, and
+        -- older DuckDB refuses to compare that against a plain TIMESTAMP.
+        and listing_created_at <= cast(current_timestamp as timestamp)
         and listing_created_at >= '2020-01-01'
 
 )

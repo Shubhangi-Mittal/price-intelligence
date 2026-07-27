@@ -16,6 +16,10 @@ dbt_project/target/
 dbt_project/.user.yml
 dbt_project/logs/
 dbt_project/dbt_packages/
+# Not committed: its format differs between dbt minor versions, so a lock file
+# written by one version makes `dbt deps` fail on another. packages.yml pins
+# the version; dbt deps regenerates the lock locally.
+dbt_project/package-lock.yml
 target/
 logs/
 
