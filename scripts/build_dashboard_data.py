@@ -33,7 +33,13 @@ SOURCE_DISPLAY = {
 def build():
     df = pd.read_csv(CSV, low_memory=False)
     df["price"] = pd.to_numeric(df["price"], errors="coerce")
-    df["created_at"] = pd.to_datetime(df["created_at"], errors="coerce")
+    # format="ISO8601" is required, not cosmetic. Older feeds mix
+    # "2026-01-05" and "2026-01-05 12:30:00" in this column; letting pandas
+    # infer the format from the first row coerces every row in the other format
+    # to NaT, which silently dropped ~a third of the listings from the
+    # dashboard. New feeds are written in a single format by
+    # mock_feed_generator, and this keeps older ones readable too.
+    df["created_at"] = pd.to_datetime(df["created_at"], format="ISO8601", errors="coerce")
     df = df[df["price"].notna() & (df["price"] > 0)].copy()
 
     for col in ["is_sold", "is_auction", "is_authenticated"]:

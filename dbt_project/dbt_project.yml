@@ -36,8 +36,11 @@ models:
       +materialized: table
       +schema: marts
       +tags: ["marts"]
+      # Snowflake-only grant syntax. Guarded by target so the marts still build
+      # on the DuckDB dev target and on BigQuery, which use different grant
+      # models — unguarded, this fails every mart with a parser error.
       +post-hook:
-        - "GRANT SELECT ON {{ this }} TO ROLE ANALYST"
+        - "{% if target.type == 'snowflake' %}grant select on {{ this }} to role analyst{% endif %}"
 
 # ── Variables ─────────────────────────────────────────────────────────────────
 vars:

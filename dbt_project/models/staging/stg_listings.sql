@@ -35,7 +35,7 @@ renamed_and_cast as (
         -- ── Product dimensions ──────────────────────────────────────────────
         lower(trim(category))                                       as category,
         lower(trim(coalesce(category_display, category)))           as category_display,
-        initcap(trim(brand))                                        as brand,
+        {{ initcap_compat("brand") }}                                        as brand,
         trim(title)                                                 as title,
         lower(trim(condition))                                      as condition,
 
@@ -55,7 +55,7 @@ renamed_and_cast as (
         cast(coalesce(num_seller_reviews, 0) as integer)           as num_seller_reviews,
 
         -- ── Location ────────────────────────────────────────────────────────
-        initcap(trim(location_city))                                as location_city,
+        {{ initcap_compat("location_city") }}                                as location_city,
         upper(trim(location_state))                                 as location_state,
 
         -- ── Listing mechanics ────────────────────────────────────────────────
@@ -119,6 +119,13 @@ filtered as (
             'watches', 'handbags', 'vintage_clothing', 'video_games',
             'collectibles', 'cameras'
         )
+        -- Drop future-dated listings. Anchor to the ingest timestamp, not
+        -- wall-clock now: a listing cannot have been created after the batch
+        -- that carried it, and that stays true however long after the load this
+        -- model runs. Comparing only against current_timestamp means a row
+        -- stamped "now + 30 days" at generation time silently starts passing
+        -- once 30 days of real time have elapsed.
+        and listing_created_at <= ingested_at + interval 1 hour
         and listing_created_at <= current_timestamp
         and listing_created_at >= '2020-01-01'
 

@@ -1,0 +1,88 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Raw marketplace listing data ingested from 6 sources via batch pipeline:
+      eBay, Amazon, StockX, Facebook Marketplace, GOAT, Mercari.
+
+      This table is KNOWN to be dirty. mock_feed_generator injects null prices,
+      duplicate listing_ids, negative prices and future-dated rows on purpose,
+      and a real marketplace feed behaves the same way. The tests below are
+      therefore `warn` severity: they exist to MEASURE incoming data quality,
+      not to fail the pipeline. stg_listings is what cleans these up, and the
+      tests on that model run at the default `error` severity.
+
+      Left at error severity, these tests make it impossible for a build to
+      succeed on a feed the pipeline was explicitly designed to survive.
+    database: "{{ env_var('DBT_DATABASE', 'price_intelligence') }}"
+    schema: raw
+
+    config:
+      freshness:
+        warn_after:  {count: 6,  period: hour}
+        error_after: {count: 24, period: hour}
+      loaded_at_field: ingested_at
+
+    tables:
+      - name: listings
+        description: "Raw product listings — 6 sources × 10 categories"
+        config:
+          freshness:
+            warn_after:  {count: 2, period: hour}
+            error_after: {count: 8, period: hour}
+          loaded_at_field: ingested_at
+
+        columns:
+          - name: listing_id
+            description: "Source listing id. Duplicate landings are expected upstream."
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+              - unique:
+                  config:
+                    severity: warn
+
+          - name: source
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+              - accepted_values:
+                  values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+                  config:
+                    severity: warn
+
+          - name: category
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+              - accepted_values:
+                  values:
+                    - sneakers
+                    - trading_cards
+                    - electronics
+                    - furniture
+                    - watches
+                    - handbags
+                    - vintage_clothing
+                    - video_games
+                    - collectibles
+                    - cameras
+                  config:
+                    severity: warn
+
+          - name: price
+            description: "Nulls and negatives are expected upstream."
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+
+          - name: ingested_at
+            tests:
+              - not_null:
+                  config:
+                    severity: warn

@@ -1,0 +1,132 @@
+version: 2
+
+models:
+  - name: int_listings_enriched
+    description: >
+      Enriched listings with 7-day rolling price benchmarks, z-score anomaly detection,
+      deal scoring, seller quality tiers, platform fee analysis, and category volatility.
+      Covers 6 sources × 10 categories.
+
+      Grain is one row per staged listing. The benchmark join is on
+      (category, source, listing_date) and must not fan out — the uniqueness
+      test below is what guards that.
+
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_listings')
+              field: listing_id
+
+      - name: listing_date
+        tests:
+          - not_null
+
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      # ── Rolling benchmarks ─────────────────────────────────────────────────
+      - name: rolling_7d_listing_count
+        description: >
+          Listings in the trailing 7-day window backing this row's benchmark.
+          Always at least 1, since a listing's own day is always in its own
+          window. A zero or null here means the benchmark join has broken.
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+
+      - name: rolling_7d_avg_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false
+
+      - name: rolling_7d_median_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false
+
+      - name: rolling_7d_stddev_price
+        description: "Null only where the trailing window holds a single listing."
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      # ── Derived signals ────────────────────────────────────────────────────
+      - name: price_z_score
+        description: "Absolute z-score, so never negative."
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: price_vs_median_pct
+        tests:
+          - not_null
+
+      - name: deal_score
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['great_deal', 'good_deal', 'fair_price', 'overpriced']
+
+      - name: seller_tier
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['power_seller', 'trusted_seller', 'standard_seller', 'new_or_flagged']
+
+      - name: category_volatility_tier
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: is_price_anomaly
+        tests:
+          - not_null
+
+    tests:
+      # Percentiles must stay monotonic. This is the assertion that catches a
+      # regression of the rolling-window defect: computing p10/median/p90 as
+      # three independent row-level windows lets them cross over, computing
+      # them from one shared trailing window cannot.
+      - dbt_utils.expression_is_true:
+          expression: "rolling_7d_p10_price <= rolling_7d_median_price"
+      - dbt_utils.expression_is_true:
+          expression: "rolling_7d_median_price <= rolling_7d_p90_price"
+
+      # deal_score must agree with the percentiles it is derived from.
+      - dbt_utils.expression_is_true:
+          expression: "price_usd < rolling_7d_p10_price"
+          config:
+            where: "deal_score = 'great_deal'"
+      - dbt_utils.expression_is_true:
+          expression: "price_usd >= rolling_7d_p90_price"
+          config:
+            where: "deal_score = 'overpriced'"
