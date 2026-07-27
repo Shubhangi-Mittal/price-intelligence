@@ -29,45 +29,62 @@ with staged as (
 ),
 
 -- ── Rolling 7-day price stats per category + source ────────────────────────
+-- The benchmark grain is (category, source, day) — NOT the listing.
+--
+-- Windowing the row-level feed with `rows between 6 preceding and current row`
+-- does not mean "the last 7 days": ROWS counts rows, so with thousands of
+-- listings per day it means "the last 7 listings". Ordering by day alone also
+-- leaves rows within a day in arbitrary order, so which 7 rows you get is
+-- non-deterministic.
+--
+-- Instead, collect the distinct (category, source, day) keys and join every
+-- listing that falls in that key's trailing 7-day span. Aggregating over the
+-- joined rows gives exact trailing statistics, keeps the window gap-aware (a
+-- day with no listings drops out rather than shifting the window), and uses
+-- only plain aggregates, so no warehouse-specific windowed-percentile syntax
+-- is required.
+daily_prices as (
+
+    select
+        category,
+        source,
+        cast(listing_created_at as date)                    as listing_date,
+        price_usd
+
+    from staged
+
+),
+
+benchmark_days as (
+
+    select distinct category, source, listing_date
+    from daily_prices
+
+),
+
 price_benchmarks as (
 
     select
-        listing_id,
-        category,
-        source,
-        date_trunc('day', listing_created_at)               as listing_date,
+        d.category,
+        d.source,
+        d.listing_date,
 
-        avg(price_usd) over (
-            partition by category, source
-            order by date_trunc('day', listing_created_at)
-            rows between 6 preceding and current row
-        )                                                   as rolling_7d_avg_price,
+        count(*)                                            as rolling_7d_listing_count,
+        avg(w.price_usd)                                    as rolling_7d_avg_price,
+        stddev_samp(w.price_usd)                            as rolling_7d_stddev_price,
 
-        stddev(price_usd) over (
-            partition by category, source
-            order by date_trunc('day', listing_created_at)
-            rows between 6 preceding and current row
-        )                                                   as rolling_7d_stddev_price,
+        percentile_cont(0.10) within group (order by w.price_usd) as rolling_7d_p10_price,
+        percentile_cont(0.50) within group (order by w.price_usd) as rolling_7d_median_price,
+        percentile_cont(0.90) within group (order by w.price_usd) as rolling_7d_p90_price
 
-        percentile_cont(0.10) within group (order by price_usd) over (
-            partition by category, source
-            order by date_trunc('day', listing_created_at)
-            rows between 6 preceding and current row
-        )                                                   as rolling_7d_p10_price,
+    from benchmark_days d
+    join daily_prices w
+        on  w.category = d.category
+        and w.source   = d.source
+        and w.listing_date >  d.listing_date - interval 7 day
+        and w.listing_date <= d.listing_date
 
-        percentile_cont(0.50) within group (order by price_usd) over (
-            partition by category, source
-            order by date_trunc('day', listing_created_at)
-            rows between 6 preceding and current row
-        )                                                   as rolling_7d_median_price,
-
-        percentile_cont(0.90) within group (order by price_usd) over (
-            partition by category, source
-            order by date_trunc('day', listing_created_at)
-            rows between 6 preceding and current row
-        )                                                   as rolling_7d_p90_price
-
-    from staged
+    group by 1, 2, 3
 
 ),
 
@@ -122,9 +139,15 @@ enriched as (
         extract(year  from s.listing_created_at)            as listing_year,
         extract(month from s.listing_created_at)            as listing_month,
         extract(dow   from s.listing_created_at)            as listing_day_of_week,
-        to_char(s.listing_created_at, 'YYYY-MM')            as year_month,
+        -- to_char is Postgres/Snowflake only (DuckDB has strftime, BigQuery has
+        -- format_timestamp). extract + lpad is the same result everywhere.
+        cast(extract(year from s.listing_created_at) as varchar)
+            || '-'
+            || lpad(cast(extract(month from s.listing_created_at) as varchar), 2, '0')
+                                                            as year_month,
 
         -- ── Price benchmarks ────────────────────────────────────────────────
+        pb.rolling_7d_listing_count,
         pb.rolling_7d_avg_price,
         pb.rolling_7d_stddev_price,
         pb.rolling_7d_median_price,
@@ -201,7 +224,9 @@ enriched as (
 
     from staged s
     left join price_benchmarks pb
-        on  s.listing_id = pb.listing_id
+        on  s.category = pb.category
+        and s.source   = pb.source
+        and cast(s.listing_created_at as date) = pb.listing_date
     left join seller_stats ss
         on  s.seller_id = ss.seller_id
     left join platform_fees pf

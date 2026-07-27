@@ -1,0 +1,16 @@
+# Local development profile. Committed on purpose: it holds no credentials, and
+# it means `cd dbt_project && dbt build` works on a fresh clone with no setup.
+#
+# dbt picks this up because it is invoked from the dbt_project/ directory.
+# The cloud (prod_bq) target belongs in ~/.dbt/profiles.yml, which takes
+# precedence when selected with --profiles-dir or DBT_PROFILES_DIR.
+#
+# The DuckDB catalog is named price_intelligence to match the `database:`
+# declared in models/staging/sources.yml.
+price_intelligence:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', '../warehouse/price_intelligence.duckdb') }}"
+      threads: 4

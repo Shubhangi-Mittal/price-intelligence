@@ -13,6 +13,7 @@ venv/
 
 # dbt
 dbt_project/target/
+dbt_project/.user.yml
 dbt_project/logs/
 dbt_project/dbt_packages/
 target/
@@ -22,6 +23,9 @@ logs/
 # but ignore daily partitions (too many files)
 mock_data/20*/
 raw_data/
+warehouse/
+*.duckdb
+*.duckdb.wal
 *.parquet
 .extractor_state.json
 

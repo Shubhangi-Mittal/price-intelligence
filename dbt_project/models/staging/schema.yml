@@ -1,0 +1,207 @@
+version: 2
+
+models:
+  - name: stg_listings
+    description: >
+      Staged marketplace listings. Typed, renamed, deduplicated.
+      One row per unique listing_id across all 6 sources and 10 categories.
+      Excludes invalid prices, unknown sources/categories, and future-dated records.
+      Adds platform fee, total cost, authentication, and local pickup flags.
+
+      This is the first model where the strict contract holds — see sources.yml
+      for the warn-level tests that measure what arrives before cleaning.
+
+    columns:
+      # ── Identity ───────────────────────────────────────────────────────────
+      - name: listing_id
+        description: "Unique listing identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: source
+        description: "Marketplace source"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: batch_id
+        tests:
+          - not_null
+
+      # ── Product ────────────────────────────────────────────────────────────
+      - name: category
+        description: "Product category"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: brand
+        tests:
+          - not_null
+
+      - name: title
+        tests:
+          - not_null
+
+      - name: condition
+        tests:
+          - not_null
+          # NB: `quote: false` was removed here. It renders the values as bare
+          # SQL identifiers rather than string literals, which is only correct
+          # for numeric/boolean columns.
+          - accepted_values:
+              values: ['new', 'like_new', 'good', 'fair', 'poor']
+
+      # ── Pricing ────────────────────────────────────────────────────────────
+      - name: price_usd
+        description: "Listed price in USD"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+              max_value: 5000000     # covers high-end watches ($85k) and handbags ($45k)
+
+      - name: original_price_usd
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+
+      - name: shipping_cost_usd
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: platform_fee_usd
+        description: "Platform fee charged by the marketplace"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: net_seller_revenue_usd
+        description: "What the seller keeps after platform fees"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: total_cost_usd
+        description: "Price + shipping — what the buyer actually pays"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+
+      - name: currency
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['USD']
+
+      # ── Seller ─────────────────────────────────────────────────────────────
+      - name: seller_id
+        tests:
+          - not_null
+
+      - name: seller_rating
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 5
+              inclusive: true
+
+      - name: num_seller_reviews
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      # ── Listing mechanics ──────────────────────────────────────────────────
+      - name: is_auction
+        tests:
+          - not_null
+
+      - name: is_sold
+        tests:
+          - not_null
+
+      - name: num_bids
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: is_authenticated
+        description: "True for StockX/GOAT verified listings"
+        tests:
+          - not_null
+
+      - name: has_local_pickup
+        tests:
+          - not_null
+
+      - name: ships_international
+        tests:
+          - not_null
+
+      # ── Location ───────────────────────────────────────────────────────────
+      - name: location_city
+        tests:
+          - not_null
+
+      - name: location_state
+        tests:
+          - not_null
+
+      # ── Timestamps ─────────────────────────────────────────────────────────
+      - name: listing_created_at
+        tests:
+          - not_null
+
+      - name: ingested_at
+        tests:
+          - not_null
+
+    tests:
+      # The buyer never pays less than the listed price.
+      - dbt_utils.expression_is_true:
+          expression: "total_cost_usd >= price_usd"
+
+      # The seller never keeps more than the buyer paid for the item.
+      - dbt_utils.expression_is_true:
+          expression: "net_seller_revenue_usd <= price_usd"
+
+      # Future-dated rows are a known injected defect and staging must drop
+      # them. Asserted against ingested_at rather than current_timestamp so the
+      # test keeps its teeth as wall-clock time moves past the bad timestamps.
+      - dbt_utils.expression_is_true:
+          expression: "listing_created_at <= ingested_at + interval 1 hour"
+
+      # Only the authenticating marketplaces can mark a listing authenticated.
+      # Mirrors vars.authenticated_sources in dbt_project.yml.
+      - dbt_utils.expression_is_true:
+          expression: "source in ('stockx', 'goat')"
+          config:
+            where: "is_authenticated"
+
+      # A sold listing must record what it sold for.
+      - dbt_utils.expression_is_true:
+          expression: "sold_price_usd is not null"
+          config:
+            where: "is_sold"

@@ -323,6 +323,10 @@ def generate_listing(listing_id: str, category: str, event_date: datetime) -> di
         "has_local_pickup":     source_info.get("local_only", False),
         "ships_international":  source_info.get("ships_internationally", False),
         "listing_url":          f"{source_info['url']}/{listing_id}",
+        # ebay_extractor emits image_url, and stg_listings/mart_price_anomalies
+        # carry it through. Without it here the mock feed and the real feed have
+        # different schemas and the staging model fails to build on mock data.
+        "image_url":            f"{source_info['url']}/img/{listing_id}.jpg",
         "created_at":           event_date.isoformat(),
         "updated_at":           (event_date + timedelta(hours=random.randint(0, 18))).isoformat(),
         "ingested_at":          datetime.utcnow().isoformat(),
@@ -376,13 +380,24 @@ def generate_dataset(days=90, records_per_day=400, output_dir="mock_data", injec
     df["created_at"]    = pd.to_datetime(df["created_at"], format="ISO8601")
     df["date_partition"] = df["created_at"].dt.strftime("%Y-%m-%d")
 
+    # Pin the on-disk timestamp format. Without this, pandas serialises a
+    # midnight-only value as "2026-01-05" but one carrying a time as
+    # "2026-01-05 12:30:00", mixing two formats in one column. Readers that
+    # infer the format from the first row then coerce every row in the other
+    # format to NaT — which silently dropped a third of the feed.
+    CSV_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S"
+
     for date_str, grp in df.groupby("date_partition"):
         d = out / date_str
         d.mkdir(exist_ok=True)
-        grp.drop(columns=["date_partition"]).to_csv(d / "listings.csv", index=False)
+        grp.drop(columns=["date_partition"]).to_csv(
+            d / "listings.csv", index=False, date_format=CSV_DATE_FORMAT
+        )
 
     combined = out / "all_listings.csv"
-    df.drop(columns=["date_partition"]).to_csv(combined, index=False)
+    df.drop(columns=["date_partition"]).to_csv(
+        combined, index=False, date_format=CSV_DATE_FORMAT
+    )
 
     meta = {
         "generated_at":  datetime.utcnow().isoformat(),

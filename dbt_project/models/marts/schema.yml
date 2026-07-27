@@ -1,0 +1,249 @@
+version: 2
+
+models:
+  # ── Daily price trends ────────────────────────────────────────────────────
+  - name: mart_price_trends
+    description: >
+      Daily price trend summary — 6 sources × 10 categories.
+      Primary table for dashboards and reporting.
+      Includes WoW change, rolling averages, trend signals,
+      platform fee metrics, authentication rates, and volatility tiers.
+
+      Grain is (listing_date, category, source).
+
+    columns:
+      - name: listing_date
+        tests:
+          - not_null
+
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: total_listings
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+
+      - name: sold_listings
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: anomalous_listings
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: authenticated_listings
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: median_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+              max_value: 5000000     # high-end watches/handbags
+
+      - name: avg_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0.01
+
+      - name: sell_through_rate
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+              inclusive: true
+
+      - name: avg_fee_pct
+        description: "Average platform fee % for this source"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: authentication_rate_pct
+        description: "% of listings verified by platform (StockX/GOAT)"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: volatility_tier
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: price_trend
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['trending_up', 'trending_down', 'stable']
+
+    tests:
+      # One row per date/category/source. Previously declared under a duplicate
+      # `listing_date` column key, which made the whole file fail to compile.
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_date
+            - category
+            - source
+
+      # Percentile / min / max ordering within the daily aggregate.
+      - dbt_utils.expression_is_true:
+          expression: "min_price <= median_price"
+      - dbt_utils.expression_is_true:
+          expression: "median_price <= max_price"
+      - dbt_utils.expression_is_true:
+          expression: "p25_price <= p75_price"
+      - dbt_utils.expression_is_true:
+          expression: "p5_price <= p95_price"
+
+      # Subset counts can never exceed the total they are drawn from.
+      - dbt_utils.expression_is_true:
+          expression: "sold_listings <= total_listings"
+      - dbt_utils.expression_is_true:
+          expression: "anomalous_listings <= total_listings"
+      - dbt_utils.expression_is_true:
+          expression: "authenticated_listings <= total_listings"
+      - dbt_utils.expression_is_true:
+          expression: "auction_count <= total_listings"
+
+      # The deal-score buckets partition the day's listings exactly.
+      - dbt_utils.expression_is_true:
+          expression: >
+            great_deal_count + good_deal_count + fair_price_count
+            + overpriced_count = total_listings
+
+      # So do the condition buckets.
+      - dbt_utils.expression_is_true:
+          expression: >
+            new_count + like_new_count + good_count + fair_count
+            + poor_count = total_listings
+
+  # ── Price anomalies ───────────────────────────────────────────────────────
+  - name: mart_price_anomalies
+    description: >
+      All detected price anomalies with severity scoring.
+      v2 adds: source_display, category_display, volatility context,
+      authentication status, and platform fee context for investigation.
+
+      Grain is one row per flagged listing.
+
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('int_listings_enriched')
+              field: listing_id
+
+      - name: listing_date
+        tests:
+          - not_null
+
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ebay', 'amazon', 'stockx', 'facebook_marketplace', 'goat', 'mercari']
+
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - sneakers
+                - trading_cards
+                - electronics
+                - furniture
+                - watches
+                - handbags
+                - vintage_clothing
+                - video_games
+                - collectibles
+                - cameras
+
+      - name: price_usd
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false
+
+      - name: anomaly_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['price_spike', 'price_drop']
+
+      - name: anomaly_severity
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['critical', 'high', 'medium', 'low']
+
+      - name: price_z_score
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: category_volatility_tier
+        description: "Volatility context — spikes in volatile categories are less alarming"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['very_volatile', 'volatile', 'moderate', 'stable']
+
+      - name: seller_tier
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['power_seller', 'trusted_seller', 'standard_seller', 'new_or_flagged']
+
+      - name: listing_url
+        tests:
+          - not_null
+
+    tests:
+      # anomaly_type must agree with the price it describes.
+      - dbt_utils.expression_is_true:
+          expression: "price_usd > market_median_price"
+          config:
+            where: "anomaly_type = 'price_spike'"
+      - dbt_utils.expression_is_true:
+          expression: "price_usd <= market_median_price"
+          config:
+            where: "anomaly_type = 'price_drop'"
